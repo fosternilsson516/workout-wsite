@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Home Page</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Website</h1>
+        <nav>
+            <button id="homeBtn" class="nav-btn active">Home</button>
+            <button id="aboutBtn" class="nav-btn">About Me</button>
+        </nav>
+    </header>
+    <main>
+        <section id="homeSection" class="content-section">
+            <img src="../static/img/mark_front.jpeg" alt="Descriptive Alt Text">
+            <p>Welcome to our website. We offer modern solutions tailored to your needs.</p>
+            <a href="/quiz" class="button">Take Quiz</a>
+        </section>
+        <section id="aboutSection" class="content-section" style="display:none;">
+            <img src="../static/img/mark_back.jpg" alt="Descriptive Alt Text">
+            <p>This is the About Me section. Here you can introduce yourself or your company.</p>
+        </section>
+    </main>
+    <script src="../static/js/script.js"></script>
+</body>
+</html>

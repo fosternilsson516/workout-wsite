@@ -1,0 +1,49 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#quiz-container {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+    width: 80%;
+    max-width: 600px;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.btn-grid li {
+    list-style-type: none;
+    padding: 5px; 
+    margin: 5px 0; 
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-grid li:hover {
+    background-color: #ccffcc; /* Light green background on hover */
+}
+
+#button-container {
+    display: flex;
+    justify-content: space-between; /* Aligns one button to each end */
+    width: 100%; /* Ensures container takes full width of parent */
+    margin-top: 20px; /* Adds vertical space between answer list and buttons */
+}
+
+#back-button, #next-button {
+    padding: 10px;
+    cursor: pointer;
+    /* Optional: Define a minimum width for better control */
+    min-width: 100px; /* Ensures buttons have a defined minimum width */
+}
