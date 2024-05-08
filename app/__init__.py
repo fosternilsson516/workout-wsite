@@ -7,8 +7,10 @@ def create_app():
 
     if os.getenv('FLASK_ENV') == 'prod':
         load_dotenv('.env.prod')
+    elif os.getenv('FLASK_ENV') == 'qa':
+        load_dotenv('.env.qa')
     else:
-        load_dotenv('.env.dev')
+        load_dotenv('.env.dev')     
 
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
     app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
