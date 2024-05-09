@@ -6,6 +6,7 @@ networks:
 
 services:
   app:
+    build: .
     volumes:
       - sockets:/sockets
       - /opt/env/.env.prod:/app/.env.prod:ro
