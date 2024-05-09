@@ -2,8 +2,7 @@ version: '3.8'
 
 services:
   app:
-    build:
-      context: .
+    build: ./app
       dockerfile: Dockerfile
     volumes:
       - sockets:/sockets
@@ -16,8 +15,7 @@ services:
       - nginx 
 
   nginx:
-    build:
-      context: ./nginx
+    build: ./nginx
       dockerfile: Dockerfile.nginx
     ports:
       - "80:80"
