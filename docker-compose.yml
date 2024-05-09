@@ -1,0 +1,28 @@
+version: '1'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - shared-vol:/app
+    environment:
+      - FLASK_ENV=prod
+
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile.nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - /path/on/host/certs:/path/in/container
+      - shared-vol:/app
+    depends_on:
+      - app
+
+volumes:
+  shared-vol:
