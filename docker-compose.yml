@@ -1,9 +1,6 @@
-version: '3.8'
-
 services:
   app:
-    build: ./app
-      dockerfile: Dockerfile
+    context: /opt/wsite/workout-wsite
     volumes:
       - sockets:/sockets
       - /opt/env/.env.prod:/app/.env.prod:ro      
@@ -15,8 +12,7 @@ services:
       - nginx 
 
   nginx:
-    build: ./nginx
-      dockerfile: Dockerfile.nginx
+    context: /opt/wsite/workout-wsite/nginx
     ports:
       - "80:80"
       - "443:443"
