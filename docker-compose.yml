@@ -19,7 +19,7 @@ services:
       - my-app-network  # Connect app service to the custom network
 
   nginx:
-    context: /opt/wsite/workout-wsite/nginx  # Assuming Dockerfile.nginx is here
+    build: ./nginx  # Assuming Dockerfile.nginx is here
     ports:
       - "80:80"
       - "443:443"  # Adjust port mapping for HTTPS if needed
