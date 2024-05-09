@@ -1,26 +1,36 @@
+version: '3.8'
+
+networks:
+  # Define a custom network named "my-app-network"
+  my-app-network:
+
 services:
   app:
-    context: /opt/wsite/workout-wsite
+    context: /opt/wsite/workout-wsite  # Assuming Dockerfile is here
     volumes:
       - sockets:/sockets
-      - /opt/env/.env.prod:/app/.env.prod:ro      
+      - /opt/env/.env.prod:/app/.env.prod:ro
     environment:
       - FLASK_ENV=prod
     env_file:
-      - /opt/env/.env.prod      
+      - /opt/env/.env.prod
     depends_on:
-      - nginx 
+      - nginx
+    networks:
+      - my-app-network  # Connect app service to the custom network
 
   nginx:
-    context: /opt/wsite/workout-wsite/nginx
+    context: /opt/wsite/workout-wsite/nginx  # Assuming Dockerfile.nginx is here
     ports:
       - "80:80"
-      - "443:443"
+      - "443:443"  # Adjust port mapping for HTTPS if needed
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
       - /etc/letsencrypt:/etc/letsencrypt:ro
       - sockets:/sockets
     restart: unless-stopped
+    networks:
+      - my-app-network  # Connect nginx service to the custom network
 
 volumes:
   sockets:
