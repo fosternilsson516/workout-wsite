@@ -11,7 +11,7 @@ services:
     environment:
       - FLASK_ENV=prod
     env_file:
-      - .env.prod      
+      - /opt/env/.env.prod      
     depends_on:
       - nginx 
 
