@@ -6,7 +6,6 @@ networks:
 
 services:
   app:
-    context: /opt/wsite/workout-wsite  # Assuming Dockerfile is here
     volumes:
       - sockets:/sockets
       - /opt/env/.env.prod:/app/.env.prod:ro
