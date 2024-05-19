@@ -1,8 +1,0 @@
-.gitignore
-venv/
-__pycache__/
-.env*
-*.md
-Dockerfile
-docker-compose.yml
-*requirements.txt
