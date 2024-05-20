@@ -3,6 +3,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.dialects.mysql import pymysql
+from sqlalchemy.dialects import mysql
 import os
 from dotenv import load_dotenv
 
@@ -11,7 +12,11 @@ load_dotenv('.env.prod')
 DATABASE_URL = os.getenv('DATABASE_URL')
 
 # Explicitly create engine with PyMySQL dialect
-engine = create_engine(DATABASE_URL, connect_args={'ssl_ca':"/etc/ssl/certs/ca-certificates.crt"})
+engine = create_engine(
+    DATABASE_URL,
+    connect_args={'ssl_ca':"/etc/ssl/certs/ca-certificates.crt"},
+    dialect=mysql.dialect()  # Explicitly set the dialect
+)
 db = SQLAlchemy(app)
 
 Session = scoped_session(sessionmaker(autocommit=False,
