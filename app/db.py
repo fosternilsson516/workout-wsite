@@ -1,6 +1,15 @@
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import create_engine
+from sqlalchemy.orm import scoped_session
 
-db = SQLAlchemy()
+# Explicitly create engine with PyMySQL dialect
+engine = create_engine(DATABASE_URL, connect_args={'ssl_ca':"/etc/ssl/certs/ca-certificates.crt"})
+db = SQLAlchemy(app)
+
+Session = scoped_session(sessionmaker(autocommit=False,
+                                         autoflush=False,
+                                         bind=engine))
+Base = declarative_base()
 
 class Response(db.Model):
     __tablename__ = 'responses'
