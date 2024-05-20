@@ -2,6 +2,10 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session
 
+load_dotenv('.env.prod') 
+
+DATABASE_URL = os.getenv('DATABASE_URL')
+
 # Explicitly create engine with PyMySQL dialect
 engine = create_engine(DATABASE_URL, connect_args={'ssl_ca':"/etc/ssl/certs/ca-certificates.crt"})
 db = SQLAlchemy(app)
