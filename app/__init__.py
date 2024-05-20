@@ -23,7 +23,7 @@ def create_app():
     app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
     app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
 
-    from .db import db, init_db
+    from .db import init_db
     init_db(app)
 
     from .routes import init_app
