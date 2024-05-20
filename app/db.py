@@ -1,6 +1,8 @@
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session
+import os
+from dotenv import load_dotenv
 
 load_dotenv('.env.prod') 
 
