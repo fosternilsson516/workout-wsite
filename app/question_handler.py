@@ -6,6 +6,8 @@ class UserQuestions:
         self.conn = db_connection()
 
     def set_answers(self, data):
+        if self.conn is None or self.conn.closed:
+            self.conn = db_connection()
         try:
             cursor = self.conn.cursor()
 
