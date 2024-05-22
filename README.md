@@ -1,7 +1,7 @@
 # Workout Plan Website
 
 ## Summary
-This is a website I built for my friend. This website is private and cannot be used by anyone else.
+This is a website I built for my friend. This website is only for display and can be viewed at: [Workout-site](https://ployease.com) its still currently a work in progress and is not reusable.
 
 ## Stack and Tools
 This website showcases my full stack and networking skills. Here are the details of the stack and tools I used to build it:
@@ -34,7 +34,7 @@ The network stack for this website is quite intricate, designed to display my ne
 - **Firewall**: UFW is used to lock down all ports except for the necessary ones, ensuring secure communication between containers.
 
 ### Benefits of the Setup
-- **Network Isolation**: The Nginx, application, and database containers run on separate hosts, providing network isolation.
+- **Network Isolation**: Nginx, and the application + database containers run on separate hosts, providing network isolation.
 - **SSH Encryption**: Using SSH encryption for security.
 - **Firewall Bypass**: The reverse SSH tunnel allows bypassing any local network firewalls if needed.
 - **Efficiency**: Nginx is efficient and lightweight, allowing multiple Nginx containers to run on a small cloud server, each serving different websites.
