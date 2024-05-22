@@ -40,5 +40,5 @@ The network stack for this website is quite intricate, designed to display my ne
 - **Efficiency**: Nginx is efficient and lightweight, allowing multiple Nginx containers to run on a small cloud server, each serving different websites.
 
 ## Future Enhancements
-My next tasks include adding easier health management tools like Prometheus, along with Terraform for automated deployment of new sites, and Jenkins for Continuous Deployment/Continuous Integration (CD/CI).
+My next tasks include adding easier health management tools like netdata to start and maybe Prometheus later on, along with Terraform, Ansible, and GitHub Actions for automated infrastructure deployments and configuration management and CD/CI.
 
