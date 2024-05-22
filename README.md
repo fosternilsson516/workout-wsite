@@ -9,7 +9,7 @@ This website showcases my full stack and networking skills. Here are the details
 ### Server Side
 - **Flask** and **Python**: The server side is built using Flask and Python.
 - **Database**: I used `psycopg2` directly with a PostgreSQL server, without SQLAlchemy. While the website does not involve any complex SQL operations, I prefer having fine-grained control over the database server. This setup also allows me to practice using `psql` and general DB Admin tasks.
-- **Email Server**: I set up a `flask-mail` server that is initialized with the application.
+- **Email Server**: I set up a `Flask-Mail` server that is initialized with the application.
 
 ### Client Side
 - **JavaScript, HTML, and CSS**: The client side is built with simple JS, HTML, and CSS, without any frameworks.
@@ -27,7 +27,7 @@ The network stack for this website is quite intricate, designed to display my ne
 
 ### Reverse SSH Tunnel
 - **Setup**: Traffic is forwarded through a reverse SSH tunnel established from a Linux (Ubuntu) based container running on my physical Proxmox host (Type 1 Hypervisor).
-- **Application Hosting**: This container holds my Flask application and Gunicorn for serving the website.
+- **Application Hosting**: This container holds my Flask application and uses Gunicorn for serving the website.
 - **Database Hosting**: Another LXC container runs the PostgreSQL database.
 
 ### Security
