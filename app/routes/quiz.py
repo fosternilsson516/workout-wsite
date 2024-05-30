@@ -15,9 +15,9 @@ def quiz():
 def submit_answers():
     data = request.get_json()
     #print(json_data_dict)
-    #data = json.dumps(json_data_dict)
+    json_data = json.dumps(data)
 
-    question_handler.set_answers(data)
+    question_handler.set_answers(json_data)
 
     base_message = f"Here are your answers: {data}"
     text_body = f"Hello,\n\n{base_message}\n\nThank you for participating."
