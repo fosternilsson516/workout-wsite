@@ -13,18 +13,18 @@ def quiz():
 
 @quiz_bp.route('/submit_answers', methods=['POST'])
 def submit_answers():
-    json_data_dict = request.get_json()
-    print(json_data_dict)
-    data = json.dumps(json_data_dict)
+    data = request.get_json()
+    #print(json_data_dict)
+    #data = json.dumps(json_data_dict)
 
     question_handler.set_answers(data)
 
-    base_message = f"Here are your answers: {json_data_dict}"
+    base_message = f"Here are your answers: {data}"
     text_body = f"Hello,\n\n{base_message}\n\nThank you for participating."
     html_body = f"<p>Hello,</p><p>{base_message}</p><p>Thank you for participating.</p>"
 
     # Assume the email is part of the data under the key 'Email'
-    email_address = json_data_dict.get('Email')
+    email_address = data.get('Email')
     if email_address:
         # Create a new message
         msg = Message("Thank You for Your Submission!",
