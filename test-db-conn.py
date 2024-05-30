@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 # Load environment variables
 if os.getenv('FLASK_ENV') == 'prod':
-    load_dotenv('.env.prod')
+    load_dotenv('/home/foster/workout-wsite/.env.prod')
 elif os.getenv('FLASK_ENV') == 'qa':
     load_dotenv('.env.qa')
 else:
