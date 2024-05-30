@@ -10,6 +10,11 @@ elif os.getenv('FLASK_ENV') == 'qa':
 else:
     load_dotenv('.env.dev')
 
+print("DB_NAME:", os.getenv('DB_NAME'))
+print("DB_USER:", os.getenv('DB_USER'))
+print("HOST:", os.getenv('HOST'))
+print("PORT:", os.getenv('PORT'))    
+
 try:
     conn = psycopg2.connect(
         dbname=os.getenv('DB_NAME'),
