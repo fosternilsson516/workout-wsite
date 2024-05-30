@@ -1,6 +1,11 @@
 import psycopg2
 import os
 from dotenv import load_dotenv
+import logging
+
+logging.basicConfig(level=logging.INFO)
+
+logging.info(f"FLASK_ENV: {os.getenv('FLASK_ENV')}")
 
 
 if os.getenv('FLASK_ENV') == 'prod':
