@@ -10,7 +10,7 @@ class UserQuestions:
         else:
             logging.info("Database connection established successfully.")
 
-    def set_answers(self, data):
+    def set_answers(self, json_data):
         if self.conn is None:
             logging.error("Database connection is not established.")
             raise ValueError("Database connection is not established")
@@ -19,7 +19,7 @@ class UserQuestions:
             logging.info("Cursor created successfully.")
 
             cursor.execute("INSERT INTO responses (data) VALUES (%s)",
-                            (data,))
+                            (json_data,))
             self.conn.commit()
             cursor.close()
         except psycopg2.Error as e:
