@@ -1,7 +1,7 @@
 # Workout Plan Website
 
 ## Summary
-This is a website I built for my friend. This website is only for display and can be viewed at: [Workout-site](https://ployease.com) its still currently a work in progress and is not reusable.
+This is a website I built for my friend. This website is only for display and can be viewed at: [Workout-site](https://mark-kuhpal.ployease.com) its still currently a work in progress and is not reusable.
 
 ## Stack and Tools
 This website showcases my full stack and networking skills. Here are the details of the stack and tools I used to build it:
@@ -15,29 +15,22 @@ This website showcases my full stack and networking skills. Here are the details
 - **JavaScript, HTML, and CSS**: The client side is built with simple JS, HTML, and CSS, without any frameworks.
 
 ## Network Stack
-The network stack for this website is quite intricate, designed to display my networking skills and understanding of various technologies. Here's how it's set up:
+I was able to simplify my network quite a bit with cloudflare. Here's how it's set up:
 
-### Cloud Server
-- **Operating System**: Ubuntu 22.04
-- **Docker**: Pre-built image to run an Nginx container.
-
-### Nginx Container
-- **Reverse Proxy**: Nginx container with a reverse proxy that points to the container's IP (not the host) and a specific port using Docker bridge mode.
-- **SSL**: SSL is installed directly on the host cloud server. The Nginx container has ports 443 and 80 open with volume mounts for dynamic updates of the SSL certificates.
-
-### Reverse SSH Tunnel
-- **Setup**: Traffic is forwarded through a reverse SSH tunnel established from a Linux (Ubuntu) based container running on my physical Proxmox host (Type 1 Hypervisor).
+### Proxmox Containers
+- **Reverse Proxy**: Nginx container with a reverse proxy that points to the port my gunicorn server is running on.
 - **Application Hosting**: This container holds my Flask application and uses Gunicorn for serving the website.
 - **Database Hosting**: Another LXC container runs the PostgreSQL database.
+
+
+### Cloudflare Tunnels
+- **Setup**: I used cloudflare to expose this website securely over https.
+- **SSL/TLS**: Certificates created with cloudflare and downloaded on the host origin server for full end-to-end encryption.
+
 
 ### Security
 - **Firewall**: UFW is used to lock down all ports except for the necessary ones, ensuring secure communication between containers.
 
-### Benefits of the Setup
-- **Network Isolation**: Nginx, and the application + database containers run on separate hosts, providing network isolation.
-- **SSH Encryption**: Using SSH encryption for security.
-- **Firewall Bypass**: The reverse SSH tunnel allows bypassing any local network firewalls if needed.
-- **Efficiency**: Nginx is efficient and lightweight, allowing multiple Nginx containers to run on a small cloud server, each serving different websites.
 
 ## Future Enhancements
 My next tasks include adding easier health management tools like netdata to start and maybe Prometheus later on, along with Terraform, Ansible, and GitHub Actions for automated infrastructure deployments and configuration management and CD/CI.
